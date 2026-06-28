@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Washer Pros — Pressure Washing & Window Cleaning</title>
+<meta name="description" content="Washer Pros — professional pressure washing and window cleaning. Driveways, concrete, walkways, windows, and garbage bin cleaning. Residential & commercial. Free estimates.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23050810'/%3E%3Cpath d='M12 3c3 4.5 6 7.8 6 11.2A6 6 0 1 1 6 14.2C6 10.8 9 7.5 12 3Z' fill='%231b73ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050810;
+    --bg-panel:#0a0e18;
+    --bg-panel-2:#0d1322;
+    --blue:#0d5cf6;
+    --blue-2:#1b73ff;
+    --blue-light:#5fa8ff;
+    --shine:#9fe6ff;
+    --ink:#f3f6fb;
+    --mut:#8d9ab0;
+    --line:rgba(255,255,255,.09);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .display{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.5px;line-height:.95;}
+  .eyebrow{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:.78rem;
+    font-weight:600;
+    color:var(--blue-light);
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  :focus-visible{outline:2px solid var(--shine);outline-offset:3px;}
+
+  /* background texture */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:26px 26px;
+    pointer-events:none;
+    z-index:0;
+    opacity:.5;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Oswald',sans-serif;
+    font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+    font-size:.85rem;
+    padding:15px 26px;
+    border-radius:8px;
+    border:2px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(100deg,var(--blue),var(--blue-2));
+    color:#fff;
+    box-shadow:0 8px 24px -8px rgba(13,92,246,.7);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(13,92,246,.85);}
+  .btn-ghost{
+    background:transparent;
+    border-color:rgba(255,255,255,.25);
+    color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:var(--blue-light);color:var(--blue-light);transform:translateY(-2px);}
+  .btn-sm{padding:11px 18px;font-size:.75rem;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(5,8,16,.78);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;
+    max-width:1180px;margin:0 auto;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{width:38px;height:38px;flex:none;}
+  .logo-text{font-family:'Anton',sans-serif;font-size:1.25rem;line-height:1;text-transform:uppercase;letter-spacing:.5px;}
+  .logo-text span{color:var(--blue-light);display:block;font-size:1.25rem;}
+  .nav-links{display:flex;gap:34px;align-items:center;}
+  .nav-links a{
+    font-family:'Oswald',sans-serif;font-size:.82rem;font-weight:500;
+    letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);
+    transition:color .15s;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{display:flex;align-items:center;gap:16px;}
+  .nav-phone{display:flex;flex-direction:column;text-align:right;}
+  .nav-phone small{font-family:'Oswald',sans-serif;font-size:.68rem;letter-spacing:1.5px;color:var(--mut);text-transform:uppercase;}
+  .nav-phone strong{font-size:.95rem;}
+  .burger{display:none;background:none;border:none;color:var(--ink);width:40px;height:40px;cursor:pointer;}
+  .mobile-menu{display:none;flex-direction:column;gap:2px;padding:8px 28px 22px;border-top:1px solid var(--line);background:var(--bg-panel);}
+  .mobile-menu a{padding:12px 0;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1.5px;font-size:.85rem;color:var(--mut);border-bottom:1px solid var(--line);}
+  .mobile-menu.open{display:flex;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;z-index:1;padding:72px 0 0;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;
+  }
+  .hero-glow{
+    position:absolute;top:-120px;left:50%;transform:translateX(-60%);
+    width:760px;height:760px;border-radius:50%;
+    background:radial-gradient(circle,rgba(13,92,246,.22),transparent 65%);
+    pointer-events:none;z-index:-1;
+  }
+  .hero h1{font-size:clamp(2.6rem,5.4vw,4.3rem);}
+  .hero h1 .shine{
+    background:linear-gradient(100deg,var(--blue-light),var(--shine),var(--blue-light));
+    background-size:220% 100%;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:shineMove 5s ease-in-out infinite;
+  }
+  @keyframes shineMove{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+  .hero .eyebrow{display:block;margin-bottom:14px;}
+  .hero p.lead{
+    margin-top:20px;max-width:480px;color:var(--mut);font-size:1.05rem;line-height:1.65;
+  }
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;}
+  .hero-trust{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap;}
+  .hero-trust div{display:flex;align-items:center;gap:9px;font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--mut);}
+  .hero-trust svg{width:18px;height:18px;color:var(--blue-light);flex:none;}
+
+  /* ---------- REVEAL SLIDER (signature element) ---------- */
+  .reveal-wrap{position:relative;}
+  .reveal-card{
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    aspect-ratio:4/3.1;
+    border:1px solid var(--line);
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.7);
+    clip-path:polygon(0 0,100% 0,100% 92%,88% 100%,0 100%);
+  }
+  .reveal{position:absolute;inset:0;cursor:ew-resize;touch-action:none;}
+  .panel{position:absolute;inset:0;overflow:hidden;}
+  .panel .surface{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+  .panel.before .surface{filter:saturate(.92) brightness(.96);}
+  .panel.before::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(0,0,0,.32), transparent 35%);
+  }
+  .panel.after::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(0,0,0,.28), transparent 35%);
+  }
+  .panel-tag{
+    position:absolute;bottom:18px;font-family:'Oswald',sans-serif;
+    font-size:.72rem;letter-spacing:2px;font-weight:600;text-transform:uppercase;
+    padding:7px 13px;border-radius:6px;
+  }
+  .panel.before .panel-tag{left:18px;background:rgba(0,0,0,.45);color:#d8cdb8;border:1px solid rgba(255,255,255,.15);}
+  .panel.after .panel-tag{right:18px;background:rgba(13,92,246,.35);color:#eaf4ff;border:1px solid rgba(159,230,255,.4);}
+
+  .handle{
+    position:absolute;top:0;bottom:0;left:50%;
+    width:0;
+    transform:translateX(-50%);
+    z-index:5;
+  }
+  .handle-line{position:absolute;top:0;bottom:0;left:0;width:2px;background:rgba(255,255,255,.85);box-shadow:0 0 14px rgba(159,230,255,.7);}
+  .handle-grip{
+    position:absolute;top:50%;left:0;transform:translate(-50%,-50%);
+    width:52px;height:52px;border-radius:50%;
+    background:linear-gradient(160deg,var(--blue-2),var(--blue));
+    border:3px solid #fff;
+    display:flex;align-items:center;justify-content:center;gap:4px;
+    box-shadow:0 10px 24px -6px rgba(0,0,0,.6);
+    cursor:ew-resize;
+  }
+  .handle-grip svg{width:14px;height:14px;color:#fff;}
+  .reveal-caption{
+    display:flex;align-items:center;gap:10px;justify-content:center;
+    margin-top:18px;color:var(--mut);font-family:'Oswald',sans-serif;
+    font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;
+  }
+  .reveal-caption svg{width:16px;height:16px;color:var(--blue-light);}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    background:linear-gradient(100deg,var(--blue),var(--blue-2));
+    overflow:hidden;border-top:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15);
+    margin-top:64px;
+    transform:skewY(-1deg);
+  }
+  .marquee-inner{display:flex;width:max-content;animation:marquee 26s linear infinite;}
+  .marquee span{
+    display:flex;align-items:center;gap:14px;
+    font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:2px;
+    text-transform:uppercase;font-size:.92rem;color:#fff;
+    padding:13px 0;white-space:nowrap;
+  }
+  .marquee span::after{content:"●";margin-left:14px;color:rgba(255,255,255,.6);font-size:.6rem;}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{position:relative;z-index:1;}
+  .section{padding:96px 0;}
+  .section-head{max-width:620px;margin-bottom:54px;}
+  .section-head .eyebrow{margin-bottom:10px;display:block;}
+  .section-head h2{font-size:clamp(2rem,3.6vw,2.9rem);}
+  .section-head p{margin-top:16px;color:var(--mut);font-size:1.02rem;line-height:1.6;}
+  .rule{height:2px;width:64px;background:linear-gradient(90deg,var(--blue),transparent);margin:16px 0 0;}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .service{background:var(--bg-panel);padding:38px 30px;transition:background .2s;}
+  .service:hover{background:var(--bg-panel-2);}
+  .service-icon{
+    width:58px;height:58px;border-radius:50%;
+    background:linear-gradient(160deg,var(--blue-2),var(--blue));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 24px -10px rgba(13,92,246,.8);
+    margin-bottom:20px;
+  }
+  .service-icon svg{width:26px;height:26px;color:#fff;}
+  .service h3{font-family:'Oswald',sans-serif;font-size:1.08rem;text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:8px;}
+  .service p{color:var(--mut);font-size:.92rem;line-height:1.55;}
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--bg-panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+  .process-step{position:relative;padding-left:0;}
+  .process-num{
+    font-family:'Anton',sans-serif;font-size:3.4rem;
+    background:linear-gradient(180deg,var(--blue-light),rgba(95,168,255,.15));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    line-height:1;margin-bottom:10px;
+  }
+  .process-step h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1px;font-size:1.05rem;margin-bottom:10px;}
+  .process-step p{color:var(--mut);font-size:.92rem;line-height:1.6;}
+
+  /* ---------- TRUST / WHY US ---------- */
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .trust-item{
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:34px 28px;background:linear-gradient(160deg,var(--bg-panel-2),var(--bg-panel));
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .trust-item svg{width:30px;height:30px;color:var(--blue-light);}
+  .trust-item h3{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:1rem;letter-spacing:1px;}
+  .trust-item p{color:var(--mut);font-size:.9rem;line-height:1.55;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:radial-gradient(circle at 80% 0%, rgba(13,92,246,.18), transparent 55%), var(--bg);}
+  .contact-top{text-align:center;max-width:680px;margin:0 auto 56px;}
+  .contact-top h2{font-size:clamp(2.1rem,4vw,3.2rem);}
+  .contact-top p{color:var(--mut);margin-top:16px;font-size:1.02rem;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .contact-card{background:var(--bg-panel);padding:36px 30px;display:flex;flex-direction:column;gap:14px;}
+  .avatar{width:54px;height:54px;border-radius:50%;background:linear-gradient(160deg,var(--blue-2),var(--blue));display:flex;align-items:center;justify-content:center;}
+  .avatar svg{width:26px;height:26px;color:#fff;}
+  .contact-card h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1px;font-size:1.05rem;}
+  .contact-card .role{color:var(--mut);font-size:.82rem;text-transform:uppercase;letter-spacing:1px;font-family:'Oswald',sans-serif;margin-top:-8px;}
+  .contact-line{display:flex;align-items:center;gap:10px;font-size:.96rem;color:var(--ink);}
+  .contact-line svg{width:18px;height:18px;color:var(--blue-light);flex:none;}
+  .contact-line a:hover{color:var(--blue-light);}
+  .link-trigger{background:none;border:none;padding:0;font:inherit;color:var(--blue-light);text-decoration:underline;cursor:pointer;}
+
+  /* ---------- ESTIMATE MODAL ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;z-index:200;
+    background:rgba(2,4,10,.78);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;padding:20px;
+    opacity:0;pointer-events:none;transition:opacity .25s ease;
+  }
+  .modal-overlay.open{opacity:1;pointer-events:auto;}
+  .modal{
+    position:relative;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:18px;
+    padding:38px 32px;box-shadow:0 40px 100px -30px rgba(0,0,0,.8);
+    transform:translateY(16px);transition:transform .25s ease;
+  }
+  .modal-overlay.open .modal{transform:translateY(0);}
+  .modal-close{
+    position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;
+    border:1px solid var(--line);background:transparent;color:var(--mut);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+  }
+  .modal-close svg{width:16px;height:16px;}
+  .modal-close:hover{color:var(--ink);border-color:var(--blue-light);}
+  .modal h3{font-size:1.7rem;margin-bottom:8px;}
+  .modal p.sub{color:var(--mut);font-size:.92rem;line-height:1.55;margin-bottom:24px;}
+  .field{margin-bottom:16px;display:flex;flex-direction:column;gap:6px;}
+  .field label{font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);}
+  .field input,.field select,.field textarea{
+    background:var(--bg-panel-2);border:1px solid var(--line);border-radius:8px;
+    padding:12px 14px;color:var(--ink);font-family:'Work Sans',sans-serif;font-size:.95rem;width:100%;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue-light);outline:none;}
+  .field textarea{resize:vertical;min-height:88px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .modal-submit{width:100%;justify-content:center;margin-top:4px;}
+  .modal-alt{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);}
+  .modal-alt small{display:block;margin-bottom:10px;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1.5px;font-size:.7rem;color:var(--mut);}
+  .modal-alt-links{display:flex;gap:18px;flex-wrap:wrap;}
+  .modal-alt-links a{font-size:.88rem;color:var(--blue-light);}
+  .modal-alt-links a:hover{color:var(--shine);}
+  .modal-thanks{display:none;text-align:center;padding:10px 0 4px;}
+  .modal-thanks.show{display:block;}
+  .modal-thanks svg{width:46px;height:46px;color:var(--blue-light);margin:0 auto 18px;}
+  .modal-thanks p{color:var(--mut);font-size:.94rem;line-height:1.6;margin-top:4px;}
+  @media (max-width:480px){
+    .field-row{grid-template-columns:1fr;}
+    .modal{padding:30px 22px;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);background:var(--bg-panel);padding-top:56px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;}
+  .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .footer-logo .logo-text{font-size:1.15rem;}
+  .footer-col p{color:var(--mut);font-size:.9rem;line-height:1.6;max-width:300px;}
+  .footer-col h4{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;color:var(--mut);margin-bottom:16px;}
+  .footer-col ul li{margin-bottom:10px;font-size:.92rem;}
+  .footer-col ul li a:hover{color:var(--blue-light);}
+  .footer-bottom{
+    border-top:1px solid var(--line);
+    padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+  .footer-bottom small{color:var(--mut);font-size:.82rem;}
+  .social{display:flex;gap:14px;}
+  .social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:border-color .15s,color .15s;color:var(--mut);}
+  .social a:hover{border-color:var(--blue-light);color:var(--blue-light);}
+  .social svg{width:17px;height:17px;}
+
+  /* ---------- REVEAL ON SCROLL ---------- */
+  .fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .fade-up.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero p.lead{max-width:none;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .process-grid{grid-template-columns:1fr;gap:34px;}
+    .trust-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .nav-phone{display:none;}
+    .burger{display:flex;align-items:center;justify-content:center;}
+  }
+  @media (max-width:640px){
+    .services-grid{grid-template-columns:1fr;}
+    .section{padding:68px 0;}
+    .hero{padding-top:44px;}
+    .reveal-card{aspect-ratio:4/3.3;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <nav>
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="22" fill="#0a1426" stroke="#1b73ff" stroke-width="2"/>
+        <path d="M24 12c4.5 6 9 11.4 9 16.4A9 9 0 1 1 15 28.4C15 23.4 19.5 18 24 12Z" fill="#1b73ff"/>
+      </svg>
+      <span class="logo-text">WASHER<span>PROS</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#shine-test">The Shine Test</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <div class="nav-phone">
+        <small>Text us</small>
+        <strong><a href="sms:+16172516234">(617) 251-6234</a></strong>
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" data-open-estimate>Free Estimate</button>
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#shine-test">The Shine Test</a>
+    <a href="#why-us">Why Us</a>
+    <a href="#contact">Contact</a>
+    <a href="sms:+16172516234">Text Kenji — (617) 251-6234</a>
+    <button type="button" class="btn btn-primary btn-sm" data-open-estimate style="width:100%;justify-content:center;margin-top:14px;">Free Estimate</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<main id="top">
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Professional Pressure Washing &amp; Window Cleaning</span>
+      <h1 class="display">We make it <span class="shine">shine.</span></h1>
+      <p class="lead">Driveways, concrete, walkways, windows, and bins — restored to the kind of clean your neighbors notice. Washer Pros is locally owned and proudly serving homes and businesses throughout Middlesex County.</p>
+      <div class="hero-ctas">
+        <button type="button" class="btn btn-primary" data-open-estimate>Get a Free Estimate</button>
+        <a href="sms:+16172516234" class="btn btn-ghost btn-sm">Text Kenji</a>
+      </div>
+      <div class="hero-trust">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg> Reliable, detail-oriented</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M9 14 7 22l5-3 5 3-2-8"/></svg> Satisfaction guaranteed</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4.5 6 7.8 6 11.2A6 6 0 1 1 6 14.2C6 10.8 9 7.5 12 3Z"/></svg> Free estimates</div>
+      </div>
+    </div>
+
+    <div class="reveal-wrap">
+      <div class="reveal-card">
+        <div class="reveal" id="reveal" role="slider" tabindex="0" aria-label="Drag to compare dirty and clean surface" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <div class="panel before">
+            <img class="surface" src="images/deck-before.jpg" alt="Deck before pressure washing">
+            <span class="panel-tag">Before</span>
+          </div>
+          <div class="panel after" id="afterPanel">
+            <img class="surface" src="images/deck-after.jpg" alt="Deck after pressure washing, squeegeed dry">
+            <span class="panel-tag">After</span>
+          </div>
+          <div class="handle" id="handle">
+            <div class="handle-line"></div>
+            <div class="handle-grip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 3 12 9 18"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 21 12 15 18"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="reveal-caption">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 3 12 9 18"/><polyline points="15 6 21 12 15 18"/></svg>
+        Drag to see the difference
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-inner" id="marqueeInner">
+    <span>Residential &amp; Commercial</span>
+    <span>Free Estimates</span>
+    <span>Competitive Pricing</span>
+    <span>Residential &amp; Commercial</span>
+    <span>Free Estimates</span>
+    <span>Competitive Pricing</span>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <span class="eyebrow">What we clean</span>
+      <h2 class="display">Our Services</h2>
+      <p>From the driveway to the windowpane, here's everywhere Washer Pros gets the grime out.</p>
+      <button type="button" class="btn btn-ghost btn-sm" data-open-estimate style="margin-top:20px;">Ask for a Quote</button>
+    </div>
+    <div class="services-grid fade-up">
+      <div class="service">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h7l3-3h4l3 3-2 2H9l-3 3H2z"/><path d="m15 11 5-5M18 14l4-1M15 17l3 3"/></svg>
+        </div>
+        <h3>Driveways</h3>
+        <p>Remove dirt, oil, and stains down to the bare concrete or asphalt.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="9" rx="1"/><path d="M9 6.5 10.5 5M15 6.5 13.5 5M9 21 10.5 19M15 21 13.5 19"/></svg>
+        </div>
+        <h3>Concrete</h3>
+        <p>Bring patios, pads, and concrete surfaces back to life.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c2-4 1-6 3-9s2-5 1-8"/><path d="M16 5.5 17.2 4M19.5 8.5 21 7.3M14 9.5 15.2 8"/></svg>
+        </div>
+        <h3>Walkways</h3>
+        <p>Safe, clean paths to and around your home or business.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
+        </div>
+        <h3>Window Cleaning</h3>
+        <p>Streak-free shine, inside and out, for homes and storefronts.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.2 13.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 7Z"/><path d="M3 7h18M9 7V4h6v3M10 11v6M14 11v6"/></svg>
+        </div>
+        <h3>Garbage Bin Cleaning</h3>
+        <p>Eliminate odors and bacteria so bin day doesn't stink.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4.5 6 7.8 6 11.2A6 6 0 1 1 6 14.2C6 10.8 9 7.5 12 3Z"/></svg>
+        </div>
+        <h3>And More</h3>
+        <p>Fences, siding, outdoor furniture — ask us about your project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section process" id="shine-test">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <span class="eyebrow">How it works</span>
+      <h2 class="display">From grimy to gleaming, in three steps</h2>
+    </div>
+    <div class="process-grid fade-up">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3>Request your free estimate</h3>
+        <p>Fill out our quick <button type="button" class="link-trigger" data-open-estimate>estimate form</button> (or text Kenji) with a few details — we'll quote it fast.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3>We show up and shine it up</h3>
+        <p>Our crew arrives on time with commercial-grade equipment and gets to work.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3>Walk away from a sparkling property</h3>
+        <p>No streaks, no residue, no mess left behind — just results you can see.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="section" id="why-us">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Why Washer Pros</span>
+      <h2 class="display">Clean spaces. Better places.</h2>
+    </div>
+    <div class="trust-grid fade-up">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3>Reliable. Detail-oriented.</h3>
+        <p>We show up when we say we will and treat every edge and corner like it's our own property.</p>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M9 14 7 22l5-3 5 3-2-8"/></svg>
+        <h3>Satisfaction guaranteed.</h3>
+        <p>Not happy with the shine? We'll come back and make it right — no questions asked.</p>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4.5 6 7.8 6 11.2A6 6 0 1 1 6 14.2C6 10.8 9 7.5 12 3Z"/></svg>
+        <h3>Clean spaces. Better places.</h3>
+        <p>From single driveways to full commercial properties — residential and commercial, big or small.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="contact-top fade-up">
+      <span class="eyebrow">Get in touch</span>
+      <h2 class="display">Ready for your space to shine?</h2>
+      <p>Fill out our estimate form and we'll get back to you the same day — no need to call.</p>
+      <button type="button" class="btn btn-primary" data-open-estimate style="margin-top:24px;">Open the Estimate Form</button>
+    </div>
+    <div class="contact-grid fade-up">
+      <div class="contact-card">
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></div>
+        <h3>Kenji Ma</h3>
+        <span class="role">Co-owner</span>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <a href="sms:+16172516234">Text (617) 251-6234</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4.5 6 7.8 6 11.2A6 6 0 1 1 6 14.2C6 10.8 9 7.5 12 3Z"/></svg></div>
+        <h3>Reach the team</h3>
+        <span class="role">Email &amp; social</span>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          <a href="mailto:1washerpros@gmail.com">1washerpros@gmail.com</a>
+        </div>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          <a href="https://instagram.com/washer_pros" target="_blank" rel="noopener">@washer_pros</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <svg class="logo-mark" viewBox="0 0 48 48" fill="none" style="width:34px;height:34px;">
+            <circle cx="24" cy="24" r="22" fill="#0a1426" stroke="#1b73ff" stroke-width="2"/>
+            <path d="M24 12c4.5 6 9 11.4 9 16.4A9 9 0 1 1 15 28.4C15 23.4 19.5 18 24 12Z" fill="#1b73ff"/>
+          </svg>
+          <span class="logo-text">WASHER<span>PROS</span></span>
+        </div>
+        <p>Professional pressure washing &amp; window cleaning, serving homes and businesses throughout Middlesex County. Residential &amp; commercial. Free estimates.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#shine-test">How it works</a></li>
+          <li><a href="#why-us">Why us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="sms:+16172516234">Text Kenji — (617) 251-6234</a></li>
+          <li><a href="mailto:1washerpros@gmail.com">1washerpros@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span id="year"></span> Washer Pros. Residential &amp; Commercial · Free Estimates · Competitive Pricing.</small>
+      <div class="social">
+        <a href="https://instagram.com/washer_pros" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="mailto:1washerpros@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ ESTIMATE MODAL ============ -->
+<div class="modal-overlay" id="estimateOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+    </button>
+
+    <div id="modalFormView">
+      <h3 class="display" id="modalTitle">Request your estimate</h3>
+      <p class="sub">Fill this out and we'll get back to you the same day with a free, no-pressure quote.</p>
+      <form id="estimateForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="estName">Name</label>
+            <input id="estName" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="estPhone">Phone</label>
+            <input id="estPhone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="estEmail">Email (optional)</label>
+          <input id="estEmail" name="email" type="email" autocomplete="email">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="estService">Service needed</label>
+            <select id="estService" name="service">
+              <option>Driveway Cleaning</option>
+              <option>Concrete Cleaning</option>
+              <option>Walkway Cleaning</option>
+              <option>Window Cleaning</option>
+              <option>Garbage Bin Cleaning</option>
+              <option>Multiple Services</option>
+              <option>Something Else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="estProperty">Property type</label>
+            <select id="estProperty" name="property">
+              <option>Residential</option>
+              <option>Commercial</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="estDetails">Details</label>
+          <textarea id="estDetails" name="details" placeholder="Address, approximate size, number of windows or bins — anything that helps us quote accurately."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary modal-submit">Send Estimate Request</button>
+      </form>
+      <div class="modal-alt">
+        <small>Prefer to text instead?</small>
+        <div class="modal-alt-links">
+          <a href="sms:+16172516234">Text Kenji — (617) 251-6234</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-thanks" id="modalThanks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>
+      <h3 class="display">Almost there</h3>
+      <p>Your email app should be opening now with everything filled in — just hit send and we'll reply the same day. If nothing opened, text Kenji at (617) 251-6234.</p>
+      <button type="button" class="btn btn-ghost" id="modalBackBtn" style="margin-top:18px;">Back to form</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile menu
+  const burger = document.getElementById('burgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a, button').forEach(el => el.addEventListener('click', () => {
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // estimate modal
+  const overlay = document.getElementById('estimateOverlay');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalFormView = document.getElementById('modalFormView');
+  const modalThanks = document.getElementById('modalThanks');
+  const modalBackBtn = document.getElementById('modalBackBtn');
+  const estimateForm = document.getElementById('estimateForm');
+  const estName = document.getElementById('estName');
+  let lastFocused = null;
+
+  function openEstimate(){
+    lastFocused = document.activeElement;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    modalFormView.style.display = 'block';
+    modalThanks.classList.remove('show');
+    setTimeout(() => estName.focus(), 60);
+  }
+  function closeEstimate(){
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if(lastFocused) lastFocused.focus();
+  }
+  document.querySelectorAll('[data-open-estimate]').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); openEstimate(); });
+  });
+  modalCloseBtn.addEventListener('click', closeEstimate);
+  overlay.addEventListener('click', e => { if(e.target === overlay) closeEstimate(); });
+  window.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && overlay.classList.contains('open')) closeEstimate();
+  });
+  modalBackBtn.addEventListener('click', () => {
+    modalThanks.classList.remove('show');
+    modalFormView.style.display = 'block';
+  });
+
+  estimateForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('estName').value.trim();
+    const phone = document.getElementById('estPhone').value.trim();
+    const email = document.getElementById('estEmail').value.trim();
+    const service = document.getElementById('estService').value;
+    const property = document.getElementById('estProperty').value;
+    const details = document.getElementById('estDetails').value.trim();
+
+    const subject = `Free Estimate Request — ${name || 'New Lead'}`;
+    const body = [
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      email ? `Email: ${email}` : null,
+      `Service needed: ${service}`,
+      `Property type: ${property}`,
+      details ? `Details: ${details}` : null
+    ].filter(Boolean).join('\n');
+
+    window.location.href = `mailto:1washerpros@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    modalFormView.style.display = 'none';
+    modalThanks.classList.add('show');
+    estimateForm.reset();
+  });
+
+  // before/after reveal slider
+  const reveal = document.getElementById('reveal');
+  const afterPanel = document.getElementById('afterPanel');
+  const handle = document.getElementById('handle');
+  let pos = 50;
+  let dragging = false;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setPos(p){
+    pos = Math.min(96, Math.max(4, p));
+    afterPanel.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
+    handle.style.left = pos + '%';
+    reveal.setAttribute('aria-valuenow', Math.round(pos));
+  }
+  setPos(50);
+
+  function posFromEvent(e){
+    const rect = reveal.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    return ((clientX - rect.left) / rect.width) * 100;
+  }
+  reveal.addEventListener('pointerdown', e => { dragging = true; setPos(posFromEvent(e)); });
+  window.addEventListener('pointermove', e => { if(dragging) setPos(posFromEvent(e)); });
+  window.addEventListener('pointerup', () => dragging = false);
+  reveal.addEventListener('keydown', e => {
+    if(e.key === 'ArrowLeft') setPos(pos - 4);
+    if(e.key === 'ArrowRight') setPos(pos + 4);
+  });
+
+  // gentle intro hint animation
+  if(!reduceMotion){
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        setPos(72);
+        setTimeout(() => setPos(50), 650);
+      }, 900);
+    });
+  }
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if(en.isIntersecting) en.target.classList.add('in'); });
+  }, { threshold: .15 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
